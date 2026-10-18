@@ -83,7 +83,7 @@ export default function HomeClient({ guestName }: { guestName: string }) {
 
   return (
     <>
-      <audio ref={audioRef} src="/music.mp3" loop preload="auto" />
+      <audio ref={audioRef} src="/music-2.mp3" loop preload="auto" />
       {stage !== "gate" && (
         <button
           onClick={toggleMusic}

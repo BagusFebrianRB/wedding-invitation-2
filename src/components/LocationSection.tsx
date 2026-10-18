@@ -5,10 +5,10 @@ export default function LocationSection() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
       <Image
-        src="/lokasi.png"
+        src="/lokasi-2.png"
         alt="Lokasi acara"
         fill
-        className="object-cover object-top"
+        className="object-cover object-bottom"
       />
 
       <h1 className="absolute top-[8%] left-1/2 -translate-x-1/2 font-script text-4xl text-burgundy-900">
