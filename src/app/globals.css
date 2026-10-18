@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-burgundy-900: #4A1220;
+  --color-burgundy-600: #7C2740;
+  --color-ivory: #FBF6F1;
+  --color-gold: #C9A66B;
+  --color-charcoal: #2E2320;
+
+  --font-script: var(--font-script);
+  --font-sans: var(--font-sans);
+  --font-poppins: var(--font-poppins);
+  --font-pinyon: var(--font-pinyon);
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+}
