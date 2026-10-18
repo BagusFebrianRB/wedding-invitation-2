@@ -9,7 +9,7 @@ const charVariants = {
 };
 
 function TypingText({ text, className, delay = 0.3 }: { text: string; className?: string; delay?: number }) {
-  const words = text.split(" ");
+  const chars = text.split("");
   return (
     <motion.h1
       variants={{
@@ -20,17 +20,10 @@ function TypingText({ text, className, delay = 0.3 }: { text: string; className?
       animate="visible"
       className={className}
     >
-      {words.map((word, wi) => (
-        <span key={wi}>
-          <span className="inline-block whitespace-nowrap">
-            {word.split("").map((char, ci) => (
-              <motion.span key={ci} variants={charVariants}>
-                {char}
-              </motion.span>
-            ))}
-          </span>
-          {wi < words.length - 1 && " "}
-        </span>
+      {chars.map((char, i) => (
+        <motion.span key={i} variants={charVariants}>
+          {char === " " ? "\u00A0" : char}
+        </motion.span>
       ))}
     </motion.h1>
   );
