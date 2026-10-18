@@ -9,7 +9,7 @@ const charVariants = {
 };
 
 function TypingText({ text, className, delay = 0.3 }: { text: string; className?: string; delay?: number }) {
-  const chars = text.split("");
+  const words = text.split(" ");
   return (
     <motion.h1
       variants={{
@@ -20,10 +20,17 @@ function TypingText({ text, className, delay = 0.3 }: { text: string; className?
       animate="visible"
       className={className}
     >
-      {chars.map((char, i) => (
-        <motion.span key={i} variants={charVariants}>
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
+      {words.map((word, wi) => (
+        <span key={wi}>
+          <span className="inline-block whitespace-nowrap">
+            {word.split("").map((char, ci) => (
+              <motion.span key={ci} variants={charVariants}>
+                {char}
+              </motion.span>
+            ))}
+          </span>
+          {wi < words.length - 1 && " "}
+        </span>
       ))}
     </motion.h1>
   );
@@ -63,7 +70,7 @@ export default function Scene1({
   return (
     <div ref={sceneRef} className="relative h-screen flex flex-col items-center justify-center px-6 text-center gap-4 bg-cover bg-center" style={{ backgroundImage: "url('/scene1-bg.png')" }}>
       <div className="absolute inset-0 bg-white/40" />
-      <div className="relative z-10">
+      <div className="relative z-10 w-full">
         <motion.div style={{ y: textY }}>
           <TypingText
           text={line1}
@@ -72,7 +79,7 @@ export default function Scene1({
         />
         </motion.div>
         
-        <motion.div style={{ y: guestY }}>
+        <motion.div style={{ y: guestY }} className="flex h-[6.75rem] items-center justify-center">
           <TypingText
           text={guestName}
           delay={line2Delay}
@@ -122,7 +129,7 @@ export default function Scene1({
             height={280}
             priority
             unoptimized
-            className="object-contain"
+            className="object-contain mx-auto"
           />
         </motion.div>
 
