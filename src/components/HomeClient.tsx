@@ -13,7 +13,7 @@ import Penutup from "@/components/Penutup";
 import { weddingData } from "@/data/content";
 import { Volume2, VolumeX } from "lucide-react";
 
-export default function HomeClient({ guestName }: { guestName: string }) {
+export default function HomeClient({ guestName, akadTime, }: { guestName: string; akadTime?: string; }) {
   const [stage, setStage] = useState<"gate" | "opening" | "opened">("gate");
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -122,7 +122,7 @@ export default function HomeClient({ guestName }: { guestName: string }) {
                 parentText={`Bapak ${weddingData.groom.father} & Ibu ${weddingData.groom.mother}`}
                 fullName={weddingData.groom.fullName}
               />
-              <SaveTheDate />
+              <SaveTheDate akadTime={akadTime} />
               <Countdown />
               <LocationSection />
               <Penutup />
