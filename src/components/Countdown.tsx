@@ -4,18 +4,17 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const TARGET = new Date("2026-10-31T10:00:00+07:00").getTime();
-
+const TARGET = new Date("2026-10-28T08:00:00+07:00").getTime();
+const LAT_LNG = "-6.964593,112.069315";
 const CALENDAR_URL =
   "https://calendar.google.com/calendar/render?" +
   new URLSearchParams({
     action: "TEMPLATE",
-    text: "Resepsi Aya & Bagus",
-    dates: "20261031T100000/20261031T120000",
+    text: "Akad Aya & Bagus",
+    dates: "20261028T080000/20261031T120000",
     ctz: "Asia/Jakarta",
-    details: "Resepsi Aya & Bagus",
-    location:
-      "D’Sultan Cafe Tuban, Jl. Basuki Rachmad No.282, Ronggomulyo, Kec. Tuban, Kabupaten Tuban, Jawa Timur 62315, Indonesia",
+    details: `Akad Aya & Bagus\n\nAlamat: Dsn Krajan RT 002 RW 002, Ds. Genaharjo, Kec. Semanding, Kabupaten Tuban, Jawa Timur 62380\n\nPeta: https://www.google.com/maps?q=${LAT_LNG}`,
+    location: LAT_LNG,
   }).toString();
 
 function getTimeLeft() {
